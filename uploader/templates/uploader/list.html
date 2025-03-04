@@ -1,0 +1,18 @@
+<h1>Uploaded CSV Files</h1>
+<table>
+    <tr>
+        <th>File</th>
+        <th>Uploaded At</th>
+        <th>Processed</th>
+        <th>Result</th>
+    </tr>
+    {% for csv in csv_files %}
+    <tr>
+        <td>{{ csv.file }}</td>
+        <td>{{ csv.uploaded_at }}</td>
+        <td>{{ csv.processed }}</td>
+        <td>{{ csv.result|default:"Pending" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'upload_csv' %}">Upload New File</a>
